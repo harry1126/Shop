@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         edusername = findViewById(R.id.ed_username);
         edpassword = findViewById(R.id.ed_password);
         edemail = findViewById(R.id.ed_email);
