@@ -95,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 result.setVisibility(View.VISIBLE);
                 result2.setVisibility(View.VISIBLE);
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Wrong!")
+                        .setMessage("Please enter again")
+                        .setPositiveButton("Ok",listener)
+                        .show();
         }
 
     }
