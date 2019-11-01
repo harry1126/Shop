@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         result2 = findViewById(R.id.result_image2);
         result.setImageResource(R.drawable.wrong);
         result2.setImageResource(R.drawable.wrong);
-        result.setVisibility(View.GONE);
-        result2.setVisibility(View.GONE);
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         edpassword.setText(enter);
     }
     public  void Button(View view){
-        result.setImageResource(R.drawable.wrong);
-        result2.setImageResource(R.drawable.wrong);
         DialogInterface.OnClickListener listener= new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -78,30 +73,34 @@ public class MainActivity extends AppCompatActivity {
                 result2.setVisibility(View.GONE);
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Wrong!")
-                        .setMessage("Please enter again")
+                        .setMessage("Name is wrong")
                         .setPositiveButton("Ok", listener)
                         .show();
-            }else if(edusername.length() >= 4 &&edpassword.length() < 6){
+            }else if(edusername.length() >= 4 && edpassword.length() < 6){
                 result.setVisibility(View.GONE);
                 result2.setVisibility(View.VISIBLE);
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Wrong!")
-                        .setMessage("Please enter again")
+                        .setMessage("Password is wrong")
                         .setPositiveButton("Ok",listener)
                       .show();
-            }else if (edusername.length()>=4 &&edpassword.length()>=6){
+            }else if (edusername.length()>=4 && edpassword.length()>=6){
                 result.setVisibility(View.GONE);
                 result2.setVisibility(View.GONE);
-            }else{
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Great!")
+                        .setMessage("successful")
+                        .setPositiveButton("Ok",null)
+                        .show();
+            }else if(edusername.length()<4&&edpassword.length()<6){
                 result.setVisibility(View.VISIBLE);
                 result2.setVisibility(View.VISIBLE);
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Wrong!")
-                        .setMessage("Please enter again")
+                        .setMessage("Name amd passsword are wrong!")
                         .setPositiveButton("Ok",listener)
                         .show();
-        }
-
+            }
     }
 
     @Override
